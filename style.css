@@ -1,0 +1,254 @@
+/* CSS Reset and Global Styles */
+        :root {
+            /* Define colors */
+            --color-text-primary: #000000;
+            --color-text-light: #fff;
+            --color-text-secondary: #555555;
+            --color-background-white: #ffffff;
+            --color-background-dark: #1a1a1a;
+            --color-accent-purple: #7f00ff; /* Approximate purple from image */
+            --color-accent-yellow: #fff312; /* Approximate yellow from image */
+            --font-family-inter: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family-inter);
+            color: var(--color-text-primary);
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-background-white);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 80vh;
+        }
+
+        /* ------------------------------------------- */
+        /* Main Section Container */
+        /* ------------------------------------------- */
+        .stats-section {
+            max-width: 1400px;
+            width: 90%;
+            padding: 80px 40px;
+            box-sizing: border-box;
+        }
+
+        /* Section Heading */
+        .section-heading {
+            font-size: 80px;
+            font-weight: 600;
+            line-height: 1;
+            letter-spacing: -0.08em;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        /* Responsive heading size */
+        @media (max-width: 768px) {
+            .section-heading {
+                font-size: 56px;
+                margin-bottom: 40px;
+            }
+        }
+        
+        /* ------------------------------------------- */
+        /* Grid Layout (5 cells) */
+        /* ------------------------------------------- */
+        .stats-grid {
+            display: grid;
+            /* Defines 3 columns: 2 equally sized, and 1 main visual column */
+            grid-template-columns: 1fr 1fr 1.5fr; 
+            grid-template-rows: auto auto; /* Two rows for the content */
+            gap: 20px;
+        }
+        
+        /* ------------------------------------------- */
+        /* Grid Items (Base Styling) */
+        /* ------------------------------------------- */
+        .grid-item {
+            background-color: #ededed;
+            border-radius: 4px;
+            padding: 40px;
+            box-sizing: border-box;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        /* Large Numbers (Statistics) */
+        .stat-value {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        /* Statistic Title */
+        .stat-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Statistic Description */
+        .stat-description {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ------------------------------------------- */
+        /* Specific Grid Item Styles */
+        /* ------------------------------------------- */
+        
+        /* ITEM 1 & 2: Project Excellence & Collective Experience */
+        .item-project-excellence {
+            grid-area: 1 / 1 / 2 / 2; /* Row 1, Column 1 */
+            background-color: #ededed;
+        }
+
+        .item-collective-experience {
+            grid-area: 1 / 2 / 2 / 3; /* Row 1, Column 2 */
+            background-color: #ededed;
+        }
+        
+        /* ITEM 3: The Visual Element (Now Video Container) */
+        .item-visual {
+            grid-area: 1 / 3 / 2 / 4; /* Row 1, Column 3, spanning only row 1 */
+            background-color: var(--color-accent-purple);
+            padding: 0;
+            position: relative;
+        }
+
+        /* The video element inside the visual item */
+        .visual-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures video covers the entire container */
+            display: block;
+            border: none;
+            /* Applying a subtle filter to match the original image's stylized look */
+            filter: brightness(1.2) contrast(1.1);
+        }
+        
+        /* ITEM 4: Connect CTA (Black Block) */
+        .item-connect-cta {
+            grid-area: 2 / 1 / 3 / 3; /* Row 2, spanning Columns 1 and 2 */
+            background-color: var(--color-background-dark);
+            color: var(--color-text-light);
+            justify-content: space-between;
+        }
+
+        .connect-heading {
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .connect-description {
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--color-text-light);
+            margin-bottom: 30px;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background-color: var(--color-text-light);
+            color: var(--color-text-primary);
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            width: fit-content;
+        }
+        
+        .contact-button:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .contact-button-icon {
+            margin-left: 10px;
+            font-size: 16px;
+        }
+
+        /* ITEM 5 & 6: Clients World-Wide & Client Satisfaction */
+        .item-clients-worldwide {
+            grid-area: 2 / 3 / 3 / 4;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .item-clients-worldwide-stat,
+        .item-client-satisfaction-stat {
+            border-radius: 4px;
+            padding: 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+             background-color: #ededed;
+        }
+        
+        /* ------------------------------------------- */
+        /* Responsive Overrides (Tablet/Mobile) */
+        /* ------------------------------------------- */
+
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+            }
+
+            .item-project-excellence { grid-area: auto; }
+            .item-collective-experience { grid-area: auto; }
+            .item-visual { 
+                grid-area: auto;
+                grid-column: span 2;
+                height: 300px;
+            }
+            .item-connect-cta { 
+                grid-area: auto;
+                grid-column: span 2;
+            }
+            .item-clients-worldwide { 
+                grid-area: auto;
+                grid-column: span 2;
+            }
+            
+            .connect-heading {
+                font-size: 30px;
+            }
+            .stat-value {
+                font-size: 48px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .stats-grid > * {
+                grid-column: span 1;
+            }
+
+            .item-visual {
+                height: 200px;
+            }
+            
+            .item-clients-worldwide {
+                grid-template-columns: 1fr;
+            }
+        }
